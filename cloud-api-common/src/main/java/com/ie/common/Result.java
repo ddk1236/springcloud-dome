@@ -40,4 +40,12 @@ public class Result<T> {
         result.setData(data);
         return result;
     }
+
+    public static <T> Result<T> back(String msg,T data){
+        Result<T> result = new Result<>();
+        result.setCode(200);
+        result.setMsg(msg);
+        result.setData(data);
+        return result;
+    }
 }
