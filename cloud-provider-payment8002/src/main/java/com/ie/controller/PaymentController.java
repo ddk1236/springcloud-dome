@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,23 +24,24 @@ public class PaymentController {
 
     @Autowired
     private PaymentService paymentService;
+    @Value("${server.port}")
+    private String serverPort;
 
     @GetMapping("/getPaymentList")
     @ApiOperation(value = "查询")
     public Result<List<PaymentEntity>> getPaymentList() {
-        System.out.println("aaa");
-        return Result.back(paymentService.getPaymentList());
+        return Result.back(serverPort,paymentService.getPaymentList());
     }
 
     @PostMapping("/addPayment")
     @ApiOperation(value = "添加")
     public Result getPaymentList(@RequestBody PaymentEntity payment) {
-        return Result.back(paymentService.addPayment(payment));
+        return Result.back(serverPort,paymentService.addPayment(payment));
     }
 
     @GetMapping("/findPaymentById/{id}")
     @ApiOperation(value = "根据Id查询")
     public Result<PaymentEntity> findPaymentById(@PathVariable Long id) {
-        return Result.back(paymentService.findPaymentById(id));
+        return Result.back(serverPort,paymentService.findPaymentById(id));
     }
 }

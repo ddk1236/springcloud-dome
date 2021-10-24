@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 @Log4j2
 public class OrderController {
 
-    public static final String payment_uri = "http://localhost:8001";
+    public static final String payment_uri = "https://CLOUD-PAYMENT-SERVICE";
 
     @Autowired
     private RestTemplate restTemplate;
