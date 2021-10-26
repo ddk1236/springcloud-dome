@@ -16,7 +16,7 @@ springfox:
     swagger:
       v2.path: /api-docs
 swagger:
-  base-package: com.ie.controller
+  base-package: com.ie.springcloud.controller
 
 
 mybatis-plus:
@@ -38,4 +38,5 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
+#      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/

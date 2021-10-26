@@ -1,4 +1,4 @@
-package com.ie.controller;
+package com.ie.springcloud.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

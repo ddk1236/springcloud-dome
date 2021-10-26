@@ -1,4 +1,4 @@
-package com.ie.controller;
+package com.ie.springcloud.controller;
 
 import com.ie.common.Result;
 import com.ie.entity.PaymentEntity;
