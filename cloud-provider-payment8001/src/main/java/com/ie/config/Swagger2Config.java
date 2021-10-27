@@ -1,4 +1,4 @@
-package com.ie.springcloud.config;
+package com.ie.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ public class Swagger2Config {
         return new Docket(DocumentationType.SWAGGER_2)
 //                .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.ie.springcloud.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.ie.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

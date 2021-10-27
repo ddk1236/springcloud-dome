@@ -1,4 +1,4 @@
-package com.ie.springcloud.controller;
+package com.ie.controller;
 
 import com.ie.common.Result;
 import com.ie.entity.PaymentEntity;
@@ -51,7 +51,7 @@ public class PaymentController {
         return Result.back(serverPort,paymentService.findPaymentById(id));
     }
 
-    @GetMapping("/payment/discovery")
+    @GetMapping("/discovery")
     public Result<Map<String, Object>> getDiscovery(){
         Map<String, Object> map = new HashMap<>();
         List<String> services = discoveryClient.getServices();
@@ -65,5 +65,10 @@ public class PaymentController {
         });
         map.put("instances",instances);
         return Result.back(map);
+    }
+
+    @GetMapping("/lb")
+    public String getPayment(){
+        return serverPort;
     }
 }

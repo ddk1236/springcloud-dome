@@ -16,7 +16,7 @@ springfox:
     swagger:
       v2.path: /api-docs
 swagger:
-  base-package: com.ie.springcloud.controller
+  base-package: com.ie.controller
 
 
 mybatis-plus:
