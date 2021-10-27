@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author ddk
@@ -69,6 +70,16 @@ public class PaymentController {
 
     @GetMapping("/lb")
     public String getPayment(){
+        return serverPort;
+    }
+
+    @GetMapping("/feign/timeout")
+    public String paymentFeignTimeOut(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return serverPort;
     }
 }
