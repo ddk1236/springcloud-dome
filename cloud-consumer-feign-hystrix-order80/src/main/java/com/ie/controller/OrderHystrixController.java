@@ -1,5 +1,6 @@
 package com.ie.controller;
 
+import com.ie.service.PaymentFallbackService;
 import com.ie.service.PaymentHystrixService;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
@@ -25,11 +26,7 @@ public class OrderHystrixController {
     private PaymentHystrixService paymentHystrixService;
 
     @GetMapping("/payment/hystrix/ok/{id}")
-    @HystrixCommand(fallbackMethod = "paymentInfo_timeoutHandler",commandProperties = {
-        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "4000")
-    })
     public String paymentInfo_OK(@PathVariable("id") Integer id){
-        int age = 10/0;
         return  paymentHystrixService.paymentInfo_OK(id);
     };
 
