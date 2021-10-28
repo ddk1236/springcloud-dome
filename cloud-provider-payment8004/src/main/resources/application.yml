@@ -5,5 +5,5 @@ spring:
     name: cloud-payment-service
   cloud:
     zookeeper:
-      connect-string: 101.132.67.200:2181
+      connect-string: localhost:2181
       session-timeout: 50000
