@@ -47,4 +47,7 @@ public class OrderHystrixController {
     public String paymentGlobalFallbackMethod(){
         return "Global全局异常，请稍后再试";
     }
+
+//    =====================服务熔断======================
+
 }

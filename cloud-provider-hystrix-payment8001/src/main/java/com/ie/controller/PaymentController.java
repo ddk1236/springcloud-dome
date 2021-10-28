@@ -1,6 +1,9 @@
 package com.ie.controller;
 
+import cn.hutool.core.util.IdUtil;
 import com.ie.service.PaymentService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,4 +39,16 @@ public class PaymentController {
         log.info("result:{}",result);
         return severPort + "--" + result;
     }
+
+
+    //====服务熔断
+    @GetMapping("/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id)
+    {
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("****result: "+result);
+        return result;
+    }
+
+
 }
