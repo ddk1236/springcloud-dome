@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/config")
 public class ConfigClientController {
 
+    @Value("${server.port}")
+    private String serverPort;
     @Value("${config.info}")
     private String configInfo;
 
     @GetMapping("/info")
     public String getConfigInfo(){
-        return configInfo;
+        return "serverPort:" + serverPort + "/n configInfo:" + configInfo;
     }
 }
